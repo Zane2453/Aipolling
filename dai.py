@@ -2,7 +2,7 @@ from iottalkpy import dan
 from uuid import getnode
 import time, socket, threading, sys, json
 from flask import Flask
-from config import IoTtalk_URL, device_model, device_name
+from config import IoTtalk_URL, device_model, device_name, device_addr, username
 
 ''' Initialize Flask '''
 app = Flask(__name__)
@@ -36,6 +36,9 @@ def on_signal(signal, df_list):
 def on_register():
     dan.log.info('[da] register successfully')
 
+def on_deregister():
+    dan.log.info('[da] register fail')
+
 ''' IoTtalk registration '''
 #device_addr = "{:012X}".format(getnode())
 odf_list = [
@@ -48,11 +51,13 @@ context = dan.register(
     odf_list=odf_list,
     accept_protos=['mqtt'],
     name=device_name,
-    #id_=device_addr,
+    id_=device_addr,
     profile={
-        'model': device_model
+        'model': device_model,
+        'u_name': username
     },
-    on_register=on_register
+    on_register=on_register,
+    on_deregister=on_deregister
 )
 
 def toProcessing():
