@@ -1,6 +1,5 @@
 from iottalkpy import dan
-from uuid import getnode
-import time, socket, threading, sys, json
+import socket, threading, sys, json
 from flask import Flask
 from config import IoTtalk_URL, device_model, device_name, device_addr, username
 

@@ -1,5 +1,5 @@
 IoTtalk_URL = 'https://iottalk2.tw/csm'
 device_model = 'Processing'
 device_name = '1.Processing'
-device_addr = 'd26c2fcc-15ef-4c75-a968-d36e8b21e138'
+device_addr = 'd26c2fcc-15ef-4c75-a268-d36e8b21e138'
 username = 'iottalk'
